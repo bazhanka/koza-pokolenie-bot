@@ -33,7 +33,7 @@ async def ngtu(call: types.CallbackQuery):
 
 @dp.callback_query_handler(text="no_uni")
 async def no_uni(call: types.CallbackQuery):
-    await call.message.answer("Обратись в Дом Актера")
+    await call.message.answer("Обратись в Дом Актера (ул. Пискунова, д.10)\nили по телефону +79043997898")
 
 
 uni_kb = InlineKeyboardMarkup(row_width=1)
