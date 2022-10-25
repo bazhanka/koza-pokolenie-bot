@@ -24,16 +24,19 @@ WEBAPP_PORT = os.getenv('PORT', default=8000)
 @dp.callback_query_handler(text="unn")
 async def unn(call: types.CallbackQuery):
     await call.message.answer("Обратись в профком студентов ННГУ или по телефону")
+    await call.answer()
 
 
 @dp.callback_query_handler(text="ngtu")
 async def ngtu(call: types.CallbackQuery):
     await call.message.answer("Обратись в профком студентов НГТУ или по телефону")
+    await call.answer()
 
 
 @dp.callback_query_handler(text="no_uni")
 async def no_uni(call: types.CallbackQuery):
     await call.message.answer("Обратись в Дом Актера (ул. Пискунова, д.10)\nили по телефону +79043997898")
+    await call.answer()
 
 
 uni_kb = InlineKeyboardMarkup(row_width=1)
@@ -45,11 +48,13 @@ uni_kb.add(unnButton, ngtuButton, noneButton)
 @dp.callback_query_handler(text="uni")
 async def uni(call: types.CallbackQuery):
     await call.message.reply("Выбери один из вариантов:", reply_markup=uni_kb)
+    await call.answer()
 
 
 @dp.callback_query_handler(text="onoff")
 async def onoff(call: types.CallbackQuery):
     await call.message.reply("Выбери один из вариантов:", reply_markup=onoff_kb)
+    await call.answer()
 
 onoff_kb = InlineKeyboardMarkup(row_width=1)
 onlineButton = InlineKeyboardButton(text="Я хочу билет онлайн", url='https://angagement.timepad.ru/event/2213874/')
